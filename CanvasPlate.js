@@ -36,11 +36,11 @@ phina.namespace(function() {
       return this;
     },
 
-    updatePointPosition: function(camera, pointer) {
+    updatePointPosition: function(camera, pointer, screenWidth, screenHeight) {
       if (pointer.getPointing()) {
         const x = pointer.x;
         const y = pointer.y;
-        const v = new THREE.Vector2((x / SCREEN_WIDTH * 2) - 1, (y / SCREEN_HEIGHT * 2) - 1);
+        const v = new THREE.Vector2((x / screenWidth * 2) - 1, -((y / screenHeight * 2) - 1));
         this.raycaster.setFromCamera(v, camera);
         const intersect = this.raycaster.intersectObjects([this.$t]);
         if (intersect.length > 0 && intersect[0].uv) {

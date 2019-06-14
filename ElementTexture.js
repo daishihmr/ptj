@@ -28,7 +28,8 @@ phina.namespace(function() {
 
       this.pointerChecker = phina.app.Interactive({
         pointers: [pointer],
-        pointer: pointer
+        pointer: pointer,
+        on: () => {},
       });
     },
 
